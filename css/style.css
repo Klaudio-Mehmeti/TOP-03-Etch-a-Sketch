@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html{
+    font-family: 'Press Start 2P','VT323', monospace;
+    font-weight: 100;
+    font-size: 14px;
+    text-rendering: optimizeLegibility;
+    overflow-x: hidden;
+    text-decoration: none;
+    display: block;
+    max-width: 1440px;
+    margin: 0 auto;
+    background-color: #ededed;
+    color: rgb(50, 50, 50);
+  }
+
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+footer{
+    text-align: center;
+}
+
+#container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+#options{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-evenly;
+    border: 1px solid rgb(50, 50, 50);
+    /* background-color: rgb(150, 150, 150); */
+    /* filter: drop-shadow(5px 5px 10px #797979);
+    background-color: rgb(200, 200, 200); */
+}
+
+#grid-container{
+
+    width: 600px;
+    height: 600px;
+    display: grid;
+    /* grid-template-columns: repeat(4 ,auto); */
+    border: 1px solid rgb(50,50,50);
+    filter: drop-shadow(5px 5px 10px #797979);
+    /* grid-template-rows: repeat(4,auto); */
+}
+
+
+.btn{
+    font-family: 'Press Start 2P','VT323', monospace;
+    width:200px;
+    border: 1px solid rgb(50, 50, 50);
+    text-align: center;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:active{
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+.btn:focus{
+    background-color: rgb(50, 50, 50);
+    color: white;
+}
+
+
+ 
