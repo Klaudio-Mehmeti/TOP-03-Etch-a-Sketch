@@ -10,8 +10,21 @@ const eraserBtn = document.querySelector('.eraser');
 const gridNr = document.querySelector('.grid-number');
 const pencilMode = document.querySelector('.pencil-mode');
 
+// const btn = document.querySelector('.btn');
+
+// function btnActive() {
+//     btn.style.backgroundColor = "rgb(50, 50, 50)";
+//     btn.style.color = "white";
+// };
 
 gridNr.addEventListener('click', changeGrid);
+
+let colorTrigger = false;
+container.addEventListener('mousedown', () => colorTrigger = true);
+container.addEventListener('mouseup', () => colorTrigger = false);
+// let isDrawing = false;
+// document.body.onmousedown = () => (isDrawing = true);
+// document.body.onmouseup = () => (isDrawing = false);
 
 
 // ------ DEFAULT GRID FUNCTION-----//
@@ -23,14 +36,15 @@ function sketchPad(gridSize) {
         container.style.gridTemplateColumns = 'repeat(' + gridSize + ', auto)';
         pixel.style.cssText = 'border-top: 1px solid rgb(160, 160, 160); border-left: 1px solid rgb(160, 160, 160);background: white;';
         container.appendChild(pixel);
-        bwMode(pixel);
-        colorMode(pixel);
-        eraser(pixel);
+        // bwMode(pixel);
+        // colorMode(pixel);
+        // eraser(pixel);
         // pencil(pixel);
     };
 };
 
 sketchPad(20);
+
 
 // ------ GRID SIZE BY USER-FUNCTION-----//
 
@@ -50,6 +64,33 @@ function clearGrid() {
     container.innerHTML = '';
 };
 
+
+
+// ------ BLACK & WHITE FUNCTION-----//
+
+// function bwMode(pixel) {
+//     bwBtn.addEventListener('click', function () {
+//         pixel.addEventListener('mouseover', () => {
+//             pixel.style.backgroundColor = "rgb(50, 50, 50)"
+//         });
+//     });
+// };
+
+
+bwBtn.addEventListener('click', blackColor);
+
+function blackColor() {
+    const allCells = document.querySelectorAll('.pixel');
+    for (let grid of allCells) {
+        grid.addEventListener('mousemove', function () {
+            if (colorTrigger)
+                grid.style.backgroundColor = 'rgb(50, 50, 50)';
+        })
+    }
+};
+
+
+
 // ------ RANDOM COLOR -FUNCTION-----//
 
 function randomColor() {
@@ -60,27 +101,27 @@ function randomColor() {
     return 'rgb(' + color.join(', ') + ')';
 };
 
-// ------ BLACK & WHITE FUNCTION-----//
-
-function bwMode(pixel) {
-    bwBtn.addEventListener('click', function () {
-        pixel.addEventListener('mouseover', () => {
-            pixel.style.backgroundColor = "rgb(50, 50, 50)"
-        });
-    });
-};
-
-
-
 // ------ RAINBOW MODE FUNCTION-----//
 
-function colorMode(pixel) {
-    colorBtn.addEventListener('click', function () {
-        pixel.addEventListener('mouseover', () => {
-            pixel.style.backgroundColor = randomColor();
-        });
-    });
+// function colorMode(pixel) {
+//     colorBtn.addEventListener('click', function () {
+//         pixel.addEventListener('mouseover', () => {
+//             pixel.style.backgroundColor = randomColor();
+//         });
+//     });
+// };
+
+colorBtn.addEventListener('click', rainbowMode);
+function rainbowMode() {
+    const allCells = document.querySelectorAll('.pixel');
+    for (let grid of allCells) {
+        grid.addEventListener('mousemove', function () {
+            if (colorTrigger)
+                grid.style.backgroundColor = randomColor();
+        })
+    }
 };
+
 
 // ------ PENCIL MODE FUNCTION-----//
 
@@ -94,12 +135,24 @@ function colorMode(pixel) {
 
 // ------ ERASER -FUNCTION-----//
 
-function eraser(pixel) {
-    eraserBtn.addEventListener('click', function () {
-        pixel.addEventListener('mouseover', () => {
-            pixel.style.backgroundColor = "white"
-        });
-    });
+// function eraser(pixel) {
+//     eraserBtn.addEventListener('click', function () {
+//         pixel.addEventListener('mouseover', () => {
+//             pixel.style.backgroundColor = "white"
+//         });
+//     });
+// };
+
+
+eraserBtn.addEventListener('click', eraserMode);
+function eraserMode() {
+    const allCells = document.querySelectorAll('.pixel');
+    for (let grid of allCells) {
+        grid.addEventListener('mousemove', function () {
+            if (colorTrigger)
+                grid.style.backgroundColor = "white";
+        })
+    }
 };
 
 
