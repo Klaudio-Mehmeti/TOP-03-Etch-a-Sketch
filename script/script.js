@@ -22,9 +22,7 @@ gridNr.addEventListener('click', changeGrid);
 let colorTrigger = false;
 container.addEventListener('mousedown', () => colorTrigger = true);
 container.addEventListener('mouseup', () => colorTrigger = false);
-// let isDrawing = false;
-// document.body.onmousedown = () => (isDrawing = true);
-// document.body.onmouseup = () => (isDrawing = false);
+
 
 
 // ------ DEFAULT GRID FUNCTION-----//
